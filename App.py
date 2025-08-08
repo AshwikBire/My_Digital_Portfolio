@@ -1,81 +1,206 @@
 import streamlit as st
 
-# ---------  PAGE CONFIG ---------- #
+# PAGE CONFIG
 st.set_page_config(
     page_title="Ashwik Bire | Portfolio",
     page_icon="📊",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
-# ---------  CUSTOM ADVANCED CSS  ---------- #
+# Load Google Fonts and FontAwesome icons, add custom CSS including animations and dark mode switch
 st.markdown("""
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
     <style>
-    html, body, [class*="css"]  {
-        background-color: #000000 !important;
-        color: #FFFFFF !important;
-        font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
-    }
-    h1, h2, h3, h4, h5, h6, .st-emotion-cache-1v0mbdj, .st-emotion-cache-z5fcl4 {
-        color: #1E90FF;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-shadow: 1px 1px 6px #2228;
-    }
-    .stSidebar, .css-6qob1r, [data-testid="stSidebar"] {
-        background: #111111 !important;
-    }
-    .st-dl, a, a:visited {
-        color: #1E90FF !important;  /* bright highlight links */
-        text-decoration: none;
-    }
-    a:hover { text-decoration: underline; }
-    .css-1aumxhk {background-color:transparent;}
-    .stButton>button {
-        color: #fff;
-        background-color: #1E90FF;
-        font-weight: 600;
-        border-radius: 8px;
-        border: none;
-        padding: 0.6em 1.2em;
-    }
-    .stButton>button:hover {
-        background: linear-gradient(90deg, #1E90FF 60%, #22c8e5 100%);
-        color: #fff;
-    }
-    .stImage>img, .stMarkdown img {
-        border-radius: 12px; 
-        border: 1.5px solid #222;
-        box-shadow: 0 4px 16px #1E90FF22;
-    }
-    .stExpanderHeader {color: #1E90FF;}
-    .st-expanderContent {background: #181818! important;}
-    hr {border: 1px solid #282828;}
-    ::selection {
-        background: #1E90FF44;
-    }
+        /* Base styling */
+        html, body, [class*="css"] {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        :root {
+            --bg-color: #000000;
+            --sidebar-bg: #111111;
+            --text-color: #FFFFFF;
+            --primary-color: #1E90FF;
+            --secondary-color: #22c8e5;
+            --header-font: 'Montserrat', sans-serif;
+            --shadow-color: #1E90FF44;
+        }
+        /* Dark mode variables */
+        .dark-mode {
+            --bg-color: #000000;
+            --sidebar-bg: #111111;
+            --text-color: #FFFFFF;
+        }
+        /* Light mode variables */
+        .light-mode {
+            --bg-color: #f5f5f5;
+            --sidebar-bg: #ffffff;
+            --text-color: #222222;
+        }
+
+        /* Headers */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--header-font);
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-shadow: 1px 1px 6px #2228;
+            margin-bottom: 0.25em;
+        }
+
+        /* Sidebar background and image styling */
+        .css-6qob1r, [data-testid="stSidebar"] {
+            background-color: var(--sidebar-bg) !important;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .stImage>img {
+            border-radius: 16px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+        .stImage>img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Links */
+        a, .st-dl a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        a:hover, a:focus {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .stButton>button {
+            background: linear-gradient(90deg, var(--primary-color) 60%, var(--secondary-color) 100%);
+            border-radius: 12px;
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            padding: 0.7em 1.5em;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: background-position 0.3s ease;
+            background-size: 200% 100%;
+            background-position: right bottom;
+        }
+        .stButton>button:hover {
+            background-position: left bottom;
+            cursor: pointer;
+        }
+
+        /* Tabs active styling */
+        .stTabs [role="tablist"] button[aria-selected="true"] {
+            background-color: var(--primary-color) !important;
+            color: #fff !important;
+            font-weight: 700 !important;
+            border-radius: 12px 12px 0 0 !important;
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+
+        /* Expander header */
+        .stExpanderHeader {
+            color: var(--primary-color);
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .stExpanderHeader:hover {
+            color: var(--secondary-color);
+        }
+        .st-expanderContent {
+            background-color: var(--sidebar-bg);
+            border-left: 3px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 2rem;
+        }
+
+        /* Horizontal rule */
+        hr {
+            border: 1px solid #282828;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--primary-color);
+            color: #000;
+        }
+
+        /* Dark mode toggle container */
+        #darkmode-toggle {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 9999;
+        }
+        /* Responsive columns spacing */
+        .custom-columns > div {
+            padding-right: 1rem;
+        }
     </style>
+
+    <script>
+        // Dark mode toggle script to switch CSS variables and persist preference
+        const toggleSwitch = () => {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            if(body.classList.contains('dark-mode')){
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if(savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            } else {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
+
+    <!-- Dark mode toggle button -->
+    <div id="darkmode-toggle" style="color: var(--primary-color); font-size: 1.5rem; cursor: pointer;" title="Toggle light/dark mode" onclick="toggleSwitch()">
+        <i class="fa-regular fa-moon"></i>
+    </div>
 """, unsafe_allow_html=True)
 
-# ------------- SIDEBAR ------------- #
+# Sidebar content
 with st.sidebar:
     st.image("passport.jpg", width=170)
     st.markdown("## 📬 Contact")
-    st.write("📧 <span style='color:#1E90FF'>ashwikbire@gmail.com</span>", unsafe_allow_html=True)
-    st.write("📱 <span style='color:#1E90FF'>8459291488</span>", unsafe_allow_html=True)
-    st.markdown("🌏 [LinkedIn](https://www.linkedin.com/)", unsafe_allow_html=True)
+    st.write("📧 ", "[ashwikbire@gmail.com](mailto:ashwikbire@gmail.com)")
+    st.write("📱 8459291488")
+    st.markdown("[🌏 LinkedIn](https://www.linkedin.com/in/your-profile)")
 
-# ------------- MAIN CONTENT ----------- #
+# Main content
 st.title("Ashwik Bire")
-st.write("""
-*Business Intelligence Enthusiast | Data Science | Data Analytics | Power BI | TDV | TIBCO Spotfire | Tableau | Python Machine Learning | SQL | Azure Data Engineering | Azure Databricks | PMO*
-""")
+st.markdown(
+    "*Business Intelligence Enthusiast | Data Science | Data Analytics | Power BI | TDV | TIBCO Spotfire | Tableau | Python Machine Learning | SQL | Azure Data Engineering | Azure Databricks | PMO*")
 
 with st.expander("💡 About Me", expanded=True):
-    st.write("""
-I am a Data Analyst with over 2.9 years of experience, skilled in Microsoft Power BI and TIBCO Spotfire, with work at Atos Syntel and for Birlasoft & FedEx APAC Client. 
-I've been recognized by the CEO of Atos Syntel with a Spot Recognition Award and achieved top rank in the Amrita Business Innovation Challenge. 
-I'm also passionate about nature photography, dance, and creative writing. My goal is to deliver valuable insights and excellent results for every project I work on.
-    """)
+    st.markdown("""
+I am a Data Analyst with over 2.9 years of experience, skilled in Microsoft Power BI and TIBCO Spotfire, with work at Atos Syntel and for Birlasoft & FedEx APAC Client.  
+I've been recognized by the CEO of Atos Syntel with a Spot Recognition Award and achieved top rank in the Amrita Business Innovation Challenge.  
+I'm passionate about nature photography, dance, and creative writing — fueling creativity and attention to detail.  
+My goal is to deliver valuable insights and excellent results for every project I work on.
+""")
 
 tab_titles = [
     "Education", "Experience", "Technologies", "Tools", "Projects",
@@ -110,11 +235,11 @@ _Client: FedEx APAC_
 _Role: Associate Consultant_  
 _Environment: TIBCO Spotfire 11x, DW, Power BI_
 
-**Key Responsibilities:**
+**Responsibilities:**
 - Developed airWISE dashboard from inception using TIBCO Data Virtualization and custom visualizations.
-- Supported and enhanced dashboards, managed migration across DEV, QA, and PROD.
-- Collaborated in Agile, attended daily stand-ups and meetings.
-- Translated raw data to actionable visualizations for stakeholders.
+- Managed dashboard migration across DEV, QA, and PROD.
+- Collaborated with Agile teams attending daily stand-ups and meetings.
+- Delivered actionable visualizations for stakeholders.
 
 ---
 
@@ -124,24 +249,30 @@ _Designation: Data Analyst_
 _Clients: Tata Consultancy Services, Birlasoft Pvt Ltd_  
 _Environment: Power BI Desktop, MS Excel_
 
-**Key Responsibilities:**
-- Maintained dashboards for monitoring incidents, issues, and service requests.
-- Designed and implemented dashboards for asset management for TIO.
-- Data validation/auditing for ticketing (Endurance Technologies).
-- SLA monitoring and compliance analysis.
-- Automated reports and visualization for efficiency.
+**Responsibilities:**
+- Maintained dashboards monitoring incidents, issues, and service requests.
+- Designed asset management dashboards for TIO.
+- Performed data validation and auditing for ticketing.
+- Monitored SLA compliance.
+- Automated reporting and visualization processes.
     """)
 
 with tab3:
     st.subheader("💻 Technologies")
-    st.markdown("""
-- **Python Programming**
-- **SQL**
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+- Python Programming
+- SQL
 - Python Libraries: Numpy, Pandas, Matplotlib, Scikit-Learn, Seaborn, Scipy
-- Azure Data Factory, Databricks
+        """)
+    with col2:
+        st.markdown("""
+- Azure Data Factory
+- Azure Databricks
 - SAFe Agile
 - Frontend: HTML, CSS, JS, Bootstrap
-    """)
+        """)
 
 with tab4:
     st.subheader("🛠️ Tools")
@@ -209,18 +340,22 @@ with tab8:
 with tab9:
     st.subheader("🌐 Social Sites")
     st.markdown("""
-- [LinkedIn](https://www.linkedin.com/)
+- [LinkedIn](https://www.linkedin.com/in/your-profile)
 - [HackerRank](https://www.hackerrank.com/)
-- [GitHub](https://github.com/)
+- [GitHub](https://github.com/your-profile)
 - [Photography Portfolio](#)
-- Instagram: [A_Naturography](https://www.instagram.com/)
-- Instagram: [Shimmering Lines](https://www.instagram.com/)
-    """, unsafe_allow_html=True)
+- Instagram: [A_Naturography](https://www.instagram.com/A_Naturography)
+- Instagram: [Shimmering Lines](https://www.instagram.com/ShimmeringLines)
+    """)
 
 with tab10:
     st.subheader("📱 Contact")
-    st.write("Email: <span style='color:#1E90FF'>ashwikbire@gmail.com</span>", unsafe_allow_html=True)
-    st.write("Contact Number: <span style='color:#1E90FF'>8459291488</span>", unsafe_allow_html=True)
+    st.markdown("""
+- Email: [ashwikbire@gmail.com](mailto:ashwikbire@gmail.com)
+- Contact Number: 8459291488
+    """)
 
 st.markdown("<hr>", unsafe_allow_html=True)
-st.write("<div style='text-align:center; color:#888;'>© Ashwik Bire</div>", unsafe_allow_html=True)
+st.markdown("""
+<div style="text-align:center; color:#888;">© Ashwik Bire</div>
+""", unsafe_allow_html=True)
