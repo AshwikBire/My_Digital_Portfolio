@@ -9,7 +9,7 @@ st.set_page_config(
 
 # Sidebar with contact
 with st.sidebar:
-    st.image("https://avatars.githubusercontent.com/u/68031207", width=160)  # You can use your photo or GitHub avatar link here
+    st.image("passport.jpg", width=160)  # Local file path  # You can use your photo or GitHub avatar link here
     st.markdown("## 📬 Contact")
     st.write("📧 ashwikbire@gmail.com")
     st.write("📱 8459291488")
