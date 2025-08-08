@@ -22,7 +22,7 @@ st.write("""
 
 with st.expander("About Me", expanded=True):
     st.write("""
-I am a Data Analyst with over 2.5 years of experience, skilled in Microsoft Power BI and TIBCO Spotfire, with work at Atos Syntel and for Birlasoft & FedEx APAC Client. I’ve been recognized by the CEO of Atos Syntel with a Spot Recognition Award for my contributions and achieved top rank in the Amrita Business Innovation Challenge Powered By Unstop (Dare 2 Compete). I’m also passionate about nature photography, dance, and creative writing, which fuel my creativity and attention to detail. My goal is to deliver valuable insights and excellent results for every project I work on.
+I am a Data Analyst with over 2.9 years of experience, skilled in Microsoft Power BI and TIBCO Spotfire, with work at Atos Syntel and for Birlasoft & FedEx APAC Client. I’ve been recognized by the CEO of Atos Syntel with a Spot Recognition Award for my contributions and achieved top rank in the Amrita Business Innovation Challenge Powered By Unstop (Dare 2 Compete). I’m also passionate about nature photography, dance, and creative writing, which fuel my creativity and attention to detail. My goal is to deliver valuable insights and excellent results for every project I work on.
 """)
 
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
