@@ -1,8 +1,6 @@
 import streamlit as st
 
-# ---------------------------------------------------------
-# PAGE CONFIG
-# ---------------------------------------------------------
+# --- PAGE CONFIGURATION ---
 st.set_page_config(
     page_title="Ashwik Bire | Portfolio",
     page_icon="📊",
@@ -10,134 +8,171 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------------------------------------------------------
-# FONT, ICONS & ADVANCED CSS
-# ---------------------------------------------------------
+# --- FONTS, ICONS, GLOBAL ADVANCED CSS ---
 st.markdown("""
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
 :root {
     --primary: #1E90FF;
     --bg: #000;
-    --secondary-bg: #111;
-    --tab-radius: 0.8em;
+    --sidebar-bg: #0B0C10;
+    --tab-radius: 1.1em;
     --tab-shadow: 0 2px 20px #1E90FF22;
 }
 html, body, [class*="css"] {
-    background-color: var(--bg) !important;
+    background: var(--bg) !important;
     color: #fff !important;
     font-family: 'Roboto', sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--primary);
-    font-weight: 700;
-}
-/* SIDEBAR */
 [data-testid="stSidebar"] {
-    background-color: var(--secondary-bg) !important;
+    background: var(--sidebar-bg) !important;
+    color: #fff;
 }
 .stImage>img {
-    border-radius: 16px;
+    border-radius: 14px;
     border: 2px solid var(--primary);
-    box-shadow: 0 4px 20px var(--tab-shadow);
+    box-shadow: 0 8px 32px #1E90FF29;
+    margin-bottom: 0.7em;
 }
-/* LINKS */
-a { color: var(--primary); text-decoration: none; font-weight: 600; }
-a:hover { color: #22c8e5; text-decoration: underline; }
-/* BUTTONS */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--primary) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.03em;
+}
+a, .st-dl a {
+    color: var(--primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: #22c8e5 !important;
+    text-decoration: underline !important;
+}
 .stButton>button {
     background: linear-gradient(90deg, var(--primary) 60%, #22c8e5 100%);
-    border-radius: 12px;
+    border-radius: 11px;
     border: none;
     color: #fff;
     font-weight: 700;
-    padding: 0.7em 1.5em;
-    box-shadow: 0 4px 12px var(--tab-shadow);
+    font-family: 'Montserrat',sans-serif;
+    padding: 0.7em 1.4em;
+    box-shadow: 0 6px 14px #1E90FF49;
+    margin-top: 1.1em;
+    margin-bottom: 1em;
     background-size: 200% 100%;
     background-position: right bottom;
-    transition: all 0.3s ease;
+    transition: all 0.25s cubic-bezier(.25,.8,.25,1);
 }
 .stButton>button:hover {
     background-position: left bottom;
+    color: #fff;
+    box-shadow: 0 1px 22px #1E90FF6c;
 }
-/* TABS - BAR */
+hr {border: 1px solid #20232a!important;}
+/* --- TABS CUSTOM BLACK DESIGN --- */
 .stTabs [role="tablist"] {
     background: var(--bg) !important;
     border-radius: var(--tab-radius) var(--tab-radius) 0 0 !important;
     box-shadow: var(--tab-shadow);
-    margin-bottom: 1rem;
-    padding: 0.3em 0.5em;
-    gap: 0.6rem;
-    min-height: 3.2em;
+    margin-bottom: 1.2rem;
+    padding: 0.2em 0.5em 0 0.5em;
+    gap: 0.7rem;
+    min-height: 3.1em;
 }
-/* INDIVIDUAL TABS */
 .stTabs [role="tab"] {
     background: var(--bg) !important;
     color: #bbb !important;
-    font-size: 1.15em;
+    font-size: 1.11em;
     border-radius: var(--tab-radius) var(--tab-radius) 0 0 !important;
-    padding: 0.6em 1.8em 0.6em 1.2em;
+    padding: 0.56em 1.7em 0.56em 1.1em;
     font-family: 'Montserrat', 'Roboto', sans-serif !important;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-right: 0.2em;
+    border: none !important;
+    box-shadow: none;
+    opacity: 0.68;
+    position: relative;
+    transition: all 0.27s;
 }
 .stTabs [role="tab"]:hover:not([aria-selected="true"]) {
-    background: #191D21 !important;
+    background: #11131b !important;
     color: #fff !important;
     box-shadow: 0 0px 12px #1E90FF33;
-    transform: translateY(-2px) scale(1.04);
+    cursor: pointer;
+    opacity: 1.0;
+    transform: translateY(-3px) scale(1.045);
 }
 .stTabs [role="tab"][aria-selected="true"] {
-    background: var(--primary) !important;
+    background: linear-gradient(90deg,var(--primary) 75%,#22c8e5 120%)!important;
     color: #fff !important;
-    font-size: 1.16em;
-    box-shadow: 0 4px 20px #1E90FF44;
+    font-size: 1.13em;
+    font-weight: 800;
+    opacity: 1.0;
+    box-shadow: 0 5px 20px #1E90FF55;
+    z-index: 2;
+    transform: translateY(-1px) scale(1.00);
 }
-/* TAB ICONS */
 .tab-icon {
-    margin-right: 0.5em;
-    font-size: 1.2em;
+    margin-right: 0.7em;
+    font-size: 1.17em;
     vertical-align: middle;
+    display: inline-block;
+    opacity: 0.9;
+}
+.stTabs [role="tab"][aria-selected="true"] .tab-icon {
+    filter: drop-shadow(0 0 6px #0007);
+    opacity: 1.0;
 }
 .stTabs [data-testid="stTabBody"] > div {
     background: var(--bg) !important;
     border-radius: 0 0 var(--tab-radius) var(--tab-radius) !important;
     box-shadow: var(--tab-shadow);
     padding: 2em;
+    min-height: 340px;
 }
-hr {border:1px solid #333;}
+/* Expander */
+.stExpanderHeader {
+    color: var(--primary) !important;
+    font-weight: bold;
+    font-family: 'Montserrat',sans-serif;
+    letter-spacing:0.02em;
+}
+/* Anywhere else */
+::selection{background:#1e90ff7d;color:#fff;}
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------
-# SIDEBAR
-# ---------------------------------------------------------
+
+
+# --- SIDEBAR PROFILE ---
 with st.sidebar:
-    st.image("passport.jpg", width=170)
+    st.image("passport.jpg", width=160)
     st.markdown("## 📬 Contact")
     st.write("📧 [ashwikbire@gmail.com](mailto:ashwikbire@gmail.com)")
     st.write("📱 8459291488")
     st.markdown("[🌏 LinkedIn](https://www.linkedin.com/in/your-profile)")
 
-# ---------------------------------------------------------
-# MAIN - HEADER
-# ---------------------------------------------------------
+
+
+# --- MAIN HEADER ---
 st.title("Ashwik Bire")
+
 st.markdown(
-    "*Business Intelligence Enthusiast | Data Science | Data Analytics | Power BI | TDV | TIBCO Spotfire | Tableau | Python Machine Learning | SQL | Azure Data Engineering | Azure Databricks | PMO*")
+    "*Business Intelligence Enthusiast | Data Science | Data Analytics | Power BI | TDV | TIBCO Spotfire | Tableau | Python Machine Learning | SQL | Azure Data Engineering | Azure Databricks | PMO*"
+)
 
 with st.expander("💡 About Me", expanded=True):
     st.markdown("""
-I am a Data Analyst with over 2.9 years of experience, skilled in Power BI and TIBCO Spotfire, with work at Atos Syntel and Birlasoft & FedEx APAC Client.  
-Recognized by the CEO of Atos Syntel with a Spot Recognition Award; top rank in the Amrita Business Innovation Challenge.  
-Passionate about nature photography, dance, creative writing, with a goal to deliver valuable insights and excellent results.
-""")
+I am a Data Analyst with 2.9+ years' experience, skilled in Power BI and TIBCO Spotfire, with work at Atos Syntel and Birlasoft & FedEx APAC Client.  
+Spot Recognition Award from Atos Syntel CEO. Top rank – Amrita Business Innovation Challenge.  
+Passionate about nature photography, dance, and creative writing, fueling creativity and detail.
+    """)
 
-# ---------------------------------------------------------
-# TAB ICONS & TITLES
-# ---------------------------------------------------------
+# --- TABS: ICONS + NAMES ---
 ICONS = [
     '<i class="fa-solid fa-graduation-cap tab-icon"></i>',    # Education
     '<i class="fa-solid fa-briefcase tab-icon"></i>',         # Experience
@@ -154,13 +189,11 @@ NAMES = [
     "Education", "Experience", "Technologies", "Tools", "Projects",
     "Certifications", "Achievements", "Interests", "Social Sites", "Contact"
 ]
-TABS_TITLES = [ICONS[i] + NAMES[i] for i in range(len(NAMES))]
+TABS = [ICONS[i] + NAMES[i] for i in range(len(NAMES))]
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(TABS_TITLES)
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(TABS)
 
-# ---------------------------------------------------------
-# TAB CONTENTS
-# ---------------------------------------------------------
+# --- TAB 1: EDUCATION ---
 with tab1:
     st.subheader("📖 Education")
     st.markdown("""
@@ -172,6 +205,7 @@ with tab1:
   _Janta High School Purnanager, Amravati_ | 2015-2016
     """)
 
+# --- TAB 2: EXPERIENCE ---
 with tab2:
     st.subheader("🧑‍💼 Experience")
     st.markdown("""
@@ -182,6 +216,8 @@ _Project: Analytics COE APAC | Client: FedEx APAC | Role: Associate Consultant_
 - Agile collaboration, daily stand-ups, meetings.  
 - Translated data into actionable visualizations.
 
+---
+
 **VDA Infosolutions Pvt Ltd** | Dec 2023 – Present  
 _Designation: Data Analyst | Clients: TCS, Birlasoft_  
 - Maintained & designed dashboards for incidents, assets, SLA compliance.  
@@ -189,16 +225,23 @@ _Designation: Data Analyst | Clients: TCS, Birlasoft_
 - Automated reporting and visualizations.
     """)
 
+# --- TAB 3: TECHNOLOGIES ---
 with tab3:
     st.subheader("💻 Technologies")
-    st.markdown("""
-- Python, SQL  
-- NumPy, Pandas, Matplotlib, Scikit-Learn, Seaborn, SciPy  
-- Azure Data Factory, Azure Databricks  
-- SAFe Agile  
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+- **Python, SQL**
+- Numpy, Pandas, Matplotlib, Scikit-Learn, Seaborn, SciPy
+        """)
+    with col2:
+        st.markdown("""
+- Azure Data Factory, Azure Databricks
+- SAFe Agile
 - HTML, CSS, JS, Bootstrap
-    """)
+        """)
 
+# --- TAB 4: TOOLS ---
 with tab4:
     st.subheader("🛠️ Tools")
     st.markdown("""
@@ -208,6 +251,7 @@ with tab4:
 - TIBCO Data Virtualization (TDV)
     """)
 
+# --- TAB 5: PROJECTS ---
 with tab5:
     st.subheader("📊 Projects")
     st.markdown("""
@@ -217,6 +261,7 @@ with tab5:
 **Python:** Road Line Detection using OpenCV
     """)
 
+# --- TAB 6: CERTIFICATIONS ---
 with tab6:
     st.subheader("🎓 Certifications")
     st.markdown("""
@@ -226,6 +271,7 @@ TIBCO Spotfire Beginner → Advanced, Master Power BI in 21 Days,
 SQL Intermediate, FE Web Dev Ultimate Course 2021, Python Programming B2A
     """)
 
+# --- TAB 7: ACHIEVEMENTS ---
 with tab7:
     st.subheader("🏆 Achievements")
     st.markdown("""
@@ -239,6 +285,7 @@ with tab7:
 - 1st Prize – Kavya Vachan (Jan 2017)
     """)
 
+# --- TAB 8: INTERESTS/HOBBIES ---
 with tab8:
     st.subheader("🌱 Interests & Hobbies")
     st.markdown("""
@@ -248,6 +295,7 @@ with tab8:
 - Continuous learning & skill development
     """)
 
+# --- TAB 9: SOCIAL SITES ---
 with tab9:
     st.subheader("🌐 Social Sites")
     st.markdown("""
@@ -259,6 +307,7 @@ with tab9:
 - Instagram: [Shimmering Lines](https://www.instagram.com/ShimmeringLines)
     """)
 
+# --- TAB 10: CONTACT ---
 with tab10:
     st.subheader("📱 Contact")
     st.markdown("""
