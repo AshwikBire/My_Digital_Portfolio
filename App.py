@@ -1,213 +1,234 @@
 import streamlit as st
 
-# ---------- PAGE CONFIG ----------
+# Set page configuration with customized theme
 st.set_page_config(
     page_title="Ashwik Bire | Portfolio",
     page_icon="📊",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
-# ---------- CUSTOM CSS ----------
+# Custom CSS for fonts, colors, and layout
 st.markdown("""
     <style>
-    /* Background and font */
-    body, .main {
-        background-color: #f5f7fa;
-        font-family: 'Segoe UI', sans-serif;
-        color: #222;
+    .main {
+        background: linear-gradient(to right, #f8f9fa, #eef2f7);
     }
-
-    /* Sidebar styling */
-    .css-1d391kg, .css-1d391kg img {
+    .sidebar .sidebar-content {
+        background: #e0f7fa !important;
+    }
+    h1, h2, h3, h4 {
+        font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';
+    }
+    .stTabs [role="tablist"] {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+    .css-1v0mbdj, .stTabs [role="tab"] {
+        background: #a7ffeb !important;
+        border-radius: 6px;
+        margin-bottom: 2px;
+        color: #00796b !important;
+        font-weight: bold !important;
+    }
+    .stTabs [aria-selected="true"] {
+        background: #004d40 !important;
+        color: #fff !important;
+    }
+    .stMarkdown hr {
+        border: 1px solid #26a69a;
+        margin: 18px 0 10px 0;
+    }
+    .info-card {
+        background: #fffde7;
         border-radius: 10px;
+        padding: 14px 18px;
+        box-shadow: 0 1px 8px #eee;
     }
-    .css-1d391kg img {
-        margin-bottom: 15px;
+    .contact-icon {
+        font-size: 23px;
+        margin-right: 8px;
+        color: #00796b;
     }
-
-    /* Section headers */
-    h2, h3, h4 {
-        color: #0e4d92;
-        border-bottom: 1px solid #e6e6e6;
-        padding-bottom: 5px;
-    }
-
-    /* Tabs styling */
-    .stTabs [role="tab"] {
-        font-weight: bold;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 8px 8px 0 0;
-        margin-right: 4px;
-        background-color: #e3e8f0;
-    }
-
-    .stTabs [role="tab"][aria-selected="true"] {
-        background-color: #0e4d92;
-        color: white;
-    }
-
-    /* Footer */
-    footer {
-        display: none;
-    }
-
     </style>
 """, unsafe_allow_html=True)
 
-# ---------- SIDEBAR ----------
+# Sidebar design
 with st.sidebar:
-    st.image("passport.jpg", width=180)  # Use local or GitHub image link
-    st.markdown("## 📬 Contact Me")
-    st.write("📧 ashwikbire@gmail.com")
-    st.write("📱 8459291488")
-    st.write("🌐 [LinkedIn](https://www.linkedin.com/in/ashwik-bire-b2a000186/)")
-
-# ---------- MAIN TITLE ----------
-st.title("✨ Ashwik Bire")
-st.write("**Business Intelligence Enthusiast | Data Science | Power BI | Azure | Python | SQL | Spotfire**")
-
-# ---------- ABOUT ME ----------
-with st.expander("👤 About Me", expanded=True):
+    st.image("passport.jpg", width=160)
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown("<h4>📬 Contact</h4>", unsafe_allow_html=True)
+    st.write(f'<span class="contact-icon">📧</span> <a href="mailto:ashwikbire@gmail.com">ashwikbire@gmail.com</a>', unsafe_allow_html=True)
+    st.write(f'<span class="contact-icon">📱</span> 8459291488', unsafe_allow_html=True)
+    st.write(f'<span class="contact-icon">🌏</span> <a href="https://linkedin.com/in/ashwikbire" target="_blank">LinkedIn (Profile)</a>', unsafe_allow_html=True)
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.markdown("**Location:** Amravati, Maharashtra")
     st.markdown("""
-    I am a **Data Analyst** with 2.9+ years of experience in Business Intelligence using Microsoft Power BI, SQL, and TIBCO Spotfire.  
-    My work at **Atos Syntel** and **Birlasoft (TCS/FedEx APAC)** has earned me several recognitions, including a **Spot Award from CEO of Atos**.  
-    I’m also passionate about nature photography, dance, and creative writing – they keep my creative spark alive.  
-    """)
+    <div style='text-align:center'>
+        <img src='https://img.icons8.com/fluency/48/instagram-new.png' width='24'/>
+        <img src='https://img.icons8.com/color/48/github.png' width='24'/>
+        <img src='https://img.icons8.com/color/48/hackerrank.png' width='24'/>
+    </div>
+    """, unsafe_allow_html=True)
 
-# ---------- TABS ----------
-tab_labels = [
-    "🎓 Education", "💼 Experience", "🛠️ Technologies", "🔧 Tools", "📁 Projects",
-    "📜 Certifications", "🏆 Achievements", "🎯 Interests", "🌐 Social Sites", "📞 Contact"
-]
+# Main header
+st.markdown('<h1 style="color:#00695c;margin-bottom:0">Ashwik Bire</h1>', unsafe_allow_html=True)
+st.markdown('<h3 style="color:#26a69a;margin-top:0;">Business Intelligence | Data Analytics | Data Science</h3>', unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(tab_labels)
+st.markdown("""
+<div class="info-card">
+<p>
+    <b>Microsoft Power BI</b> · <b>TIBCO Spotfire</b> · <b>Tableau</b> · <b>Python</b> · <b>SQL</b> · <b>Azure Data Engineering</b> · <b>TDV</b> · <b>Databricks</b> · <b>PMO</b>
+</p>
+</div>
+""", unsafe_allow_html=True)
 
-# ---------- EDUCATION ----------
-with tab1:
-    st.subheader("🎓 Education")
+with st.expander("About Me", expanded=True):
     st.markdown("""
-- **Bachelor of Engineering, Electronics & Telecommunication** | 82.36%  
-  *P.R. Pote College of Engineering and Management, Amravati – 2019-2022*
+    <div style="font-size:1.15em;">
+    Data Analyst with nearly 3 years' experience in Power BI, TIBCO Spotfire, at Atos Syntel for Birlasoft & FedEx APAC. 
+    <br><br>
+    CEO-awarded at Atos, state winner of Amrita Business Innovation Challenge. 
+    <br><br>
+    Passionate about nature photography, dance, and creative writing—fueling creativity and attention to detail. <br>
+    <b>Goal:</b> Deliver valuable, actionable insights and excellent results for every project.
+    </div>
+    """, unsafe_allow_html=True)
 
-- **Diploma in Engineering** | 75%  
-  *Dr. Panjabrao Deshmukh Polytechnic, Amravati – 2016-2019*
+# Tabs for content
+tabs = st.tabs([
+    "🎓 Education", "💼 Experience", "🖥️ Technologies", "🛠️ Tools",
+    "📈 Projects", "📝 Certifications", "🏆 Achievements", "🎯 Interests",
+    "🌐 Social Sites", "📪 Contact"
+])
 
-- **S.S.C (10th)** | 79%  
-  *Janta High School Purnanager, Amravati – 2015-2016*
-""")
-
-# ---------- EXPERIENCE ----------
-with tab2:
-    st.subheader("💼 Experience")
+with tabs[0]:
+    st.subheader("Education")
     st.markdown("""
-### VDA Infosolutions Pvt Ltd | Dec 2023 – Present  
-**Role:** Data Analyst | **Clients:** TCS, Birlasoft  
-- Developed dashboards for TIO asset management.  
-- Automated report generation using Power BI and Excel.  
-- Audited ticketing data and monitored SLA compliance.  
+    **Bachelor of Engineering, Electronics & Telecommunication**  
+    P.R. Pote College of Engineering and Management, Amravati (SGBAU) | 2019 - 2022  
+    <b>Score:</b> 82.36%  
+    ---
+    **Engineering Diploma**  
+    DR. Panjabrao Deshmukh Polytechnic, Amravati | 2016 - 2019  
+    <b>Score:</b> 75%  
+    ---
+    **S.S.C**  
+    Janta High School Purnanager, Amravati | 2015 - 2016  
+    <b>Score:</b> 79%
+    """, unsafe_allow_html=True)
 
----
-
-### Atos Syntel | Aug 2022 – Aug 2023  
-**Role:** Associate Consultant | **Client:** FedEx APAC  
-- Created airWISE dashboard with TIBCO Spotfire & TDV.  
-- Involved in agile processes and daily stand-up meetings.  
-- Translated business needs into insightful dashboards.
-""")
-
-# ---------- TECHNOLOGIES ----------
-with tab3:
-    st.subheader("🛠️ Technologies")
+with tabs[1]:
+    st.subheader("Experience")
     st.markdown("""
-- Python, SQL  
-- Pandas, NumPy, Matplotlib, Seaborn, Scikit-Learn  
-- Azure Data Factory, Azure Databricks  
-- HTML, CSS, Bootstrap, JavaScript  
-- Agile Methodologies (SAFe)
-""")
+    <b>Atos Syntel</b> <br> <i>Aug 2022 – Aug 2023</i>
+    <ul>
+        <li>Developed airWISE dashboard from inception using TIBCO Data Virtualization and custom visualizations.</li>
+        <li>Dashboard maintenance, migration management across environments.</li>
+        <li>Agile collaboration, attended daily stand-ups.</li>
+        <li>Translated raw data to actionable visualizations for stakeholders.</li>
+    </ul>
+    <hr>
+    <b>VDA Infosolutions Pvt Ltd</b> <br> <i>Dec 2023 – Present</i>
+    <ul>
+        <li>Maintained dashboards for asset monitoring, incidents, SLA compliance.</li>
+        <li>Designed/implemented asset management dashboards for TIO.</li>
+        <li>Automated reporting for improved efficiency.</li>
+        <li>Data validation, auditing, and ticketing analysis.</li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-# ---------- TOOLS ----------
-with tab4:
-    st.subheader("🔧 Tools")
+with tabs[2]:
+    st.subheader("Technologies")
     st.markdown("""
-- Microsoft Power BI  
-- TIBCO Spotfire 11.4x  
-- Tableau Public  
-- TIBCO Data Virtualization (TDV)
-""")
+    <span style="color:#00695c">Python (Numpy, Pandas, Matplotlib, Scikit-Learn, Seaborn, Scipy)</span>  
+    <span style="color:#00796b">SQL</span>  
+    <span style="color:#00897b">Azure Data Factory, Databricks</span>  
+    <span style="color:#009688">SAFe Agile</span>  
+    <span style="color:#00bcd4">Frontend: HTML, CSS, JS, Bootstrap</span>
+    """, unsafe_allow_html=True)
 
-# ---------- PROJECTS ----------
-with tab5:
-    st.subheader("📁 Projects")
+with tabs[3]:
+    st.subheader("Tools")
     st.markdown("""
-**🔹 Power BI Projects:**  
-- [Hospital Activity UK Dashboard](https://github.com/AshwikBire/Hospital-Activity-UK-Dashboard.git)  
-- [Amazon Sales Dashboard](https://github.com/AshwikBire/Amazon-Sales-Dashboard.git)  
+    - Power BI Desktop
+    - TIBCO Spotfire 11.4x
+    - Tableau Public
+    - TIBCO Data Virtualization (TDV)
+    """, unsafe_allow_html=True)
 
-**🔹 Web Development:**  
-- [A_Naturography Website](https://ashwikbire.github.io/a_naturography.github.io)  
-- [Online Food Ordering System](https://github.com/AshwikBire/ONLINE-FOOD-ORDERING-SYSTEM.git)  
-
-**🔹 Python Project:**  
-- [Road Line Detection using OpenCV](https://github.com/AshwikBire/Road-Line-Detector-using-Python.git)  
-
-**🔹 IoT Academic Project:**  
-- Conference Room Light Controller with Visitor Counter
-""")
-
-# ---------- CERTIFICATIONS ----------
-with tab6:
-    st.subheader("📜 Certifications")
+with tabs[4]:
+    st.subheader("Projects")
     st.markdown("""
-- [Microsoft Azure Fundamentals](https://learn.microsoft.com/en-us/users/ashwikbire-7557/credentials/7de31893d146bf69)  
-- [Power BI Data Analyst Associate](https://learn.microsoft.com/en-us/users/ashwikbire-7557/credentials/b4324bff2a4c2081)  
-- [Business Intelligence Foundation Professional](https://www.credly.com/badges/cbaf47fb-ac03-497d-8c73-12aa1c545e2c/public_url)  
-- [Scrum Foundation](https://www.credly.com/badges/79aea45b-709c-4419-814b-930c88d25f92/linked_in_p)  
-- [SQL Intermediate - HackerRank](https://www.hackerrank.com/certificates/79ec222704f3)  
-- [Python Programming (Udemy)](https://www.udemy.com/certificate/UC-21d316ab-2820-482a-9abb-be3c7c9e0c3d/)  
-- TIBCO Spotfire, Power BI (Udemy)
-""")
+    <ul>
+    <li><b>Power BI:</b> UK Hospital Activity Dashboard, Amazon Sales Dashboard</li>
+    <li><b>Web:</b> A_Naturography Website, Online Food Ordering System</li>
+    <li><b>IOT/Academic:</b> Conference Room Light Controller & Bi-Directional Counter</li>
+    <li><b>Python:</b> Road Line Detection using OpenCV</li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-# ---------- ACHIEVEMENTS ----------
-with tab7:
-    st.subheader("🏆 Achievements")
+with tabs[5]:
+    st.subheader("Certifications")
     st.markdown("""
-- 🏅 Spot Recognition by CEO, Atos Syntel  
-- 🥇 State Winner – Amrita Business Innovation Challenge  
-- 🥇 1st Prize – Solo Dance, Paper Presentation  
-- 🥉 Tech Quiz – PRPCEM  
-- ✍️ Kavya Vachan Champion
-""")
+    <ul>
+    <li>Microsoft Azure Fundamental</li>
+    <li>Microsoft Certified Power BI Data Analyst Associate</li>
+    <li>Business Intelligence Foundation Professional</li>
+    <li>Scrum Foundational Professional Certificate</li>
+    <li>TIBCO Spotfire Development (Beginner to Advanced)</li>
+    <li>Master Power BI in 21 Days</li>
+    <li>SQL Intermediate</li>
+    <li>Front End Web Development Ultimate Course 2021</li>
+    <li>Python Programming - Basics to Advanced</li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-# ---------- INTERESTS ----------
-with tab8:
-    st.subheader("🎯 Interests & Hobbies")
+with tabs[6]:
+    st.subheader("Achievements")
     st.markdown("""
-- Nature Photography 📸  
-- Dance 💃  
-- Creative Writing ✍️  
-- Exploring Data Science & Innovation 🚀
-""")
+    <ul>
+    <li>🟢 Spot Recognition by CEO Atos Syntel (Sep 2022)</li>
+    <li>🟢 State Winner – Amrita Business Innovation Challenge (Jun 2022)</li>
+    <li>🟢 Appreciation Award – PRPCEM Amravati (May 2022)</li>
+    <li>🟢 Coding Round – Techgig Code Gladiators (Aug 2021)</li>
+    <li>🟢 1st Prize – Paper Presentation, PRP College (Jan 2020)</li>
+    <li>🟢 1st Prize – Solo Dance Competition (Jan 2019)</li>
+    <li>🟢 3rd Prize – Technical Quiz (Jan 2019)</li>
+    <li>🟢 1st Prize – Kavya Vachan (Jan 2017)</li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-# ---------- SOCIAL SITES ----------
-with tab9:
-    st.subheader("🌐 Social Sites")
+with tabs[7]:
+    st.subheader("Interests & Hobbies")
     st.markdown("""
-- [LinkedIn](https://www.linkedin.com/in/ashwik-bire-b2a000186/)  
-- [GitHub](https://github.com/AshwikBire)  
-- [HackerRank](https://www.hackerrank.com/ashwikbire?hr_r=1)  
-- [Photography Portfolio](https://ashwikbire.github.io/a_naturography.github.io)  
-- [Instagram: A_Naturography](https://www.instagram.com/a_naturography/)  
-- [Instagram: Shimmering Lines](https://www.instagram.com/_shimmering_lines_/)
-""")
+    <ul>
+    <li>Nature photography</li>
+    <li>Dance</li>
+    <li>Creative writing</li>
+    <li>Continuous learning & skill development</li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-# ---------- CONTACT ----------
-with tab10:
-    st.subheader("📞 Contact Me")
-    st.write("📧 ashwikbire@gmail.com")
-    st.write("📱 8459291488")
+with tabs[8]:
+    st.subheader("Social Sites")
+    st.markdown("""
+    <ul>
+    <li><a href="https://linkedin.com/in/ashwikbire" target="_blank">LinkedIn</a></li>
+    <li><a href="https://www.hackerrank.com/ashwikbire" target="_blank">HackerRank</a></li>
+    <li><a href="https://github.com/ashwikbire" target="_blank">GitHub</a></li>
+    <li><a href="#" target="_blank">Photography Portfolio</a></li>
+    <li>Instagram: <a href="https://instagram.com/A_Naturography" target="_blank">A_Naturography</a></li>
+    <li>Instagram: <a href="https://instagram.com/ShimmeringLines" target="_blank">Shimmering Lines</a></li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-# ---------- FOOTER ----------
+with tabs[9]:
+    st.subheader("Contact")
+    st.markdown("""
+    <span class="contact-icon">📧</span> <a href="mailto:ashwikbire@gmail.com">ashwikbire@gmail.com</a><br>
+    <span class="contact-icon">📱</span> 8459291488
+    """, unsafe_allow_html=True)
+
 st.markdown("<hr>", unsafe_allow_html=True)
-st.markdown("<center>© 2025 Ashwik Bire | All rights reserved.</center>", unsafe_allow_html=True)
+st.markdown('<div style="text-align:center;color:#00695c;">© Ashwik Bire</div>', unsafe_allow_html=True)
