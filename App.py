@@ -1,18 +1,14 @@
 import streamlit as st
 
-# --- PAGE CONFIGURATION ---
 st.set_page_config(
     page_title="Ashwik Bire | Portfolio",
     page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
 
-# --- FONTS, ICONS, GLOBAL ADVANCED CSS ---
+# -- CUSTOM CSS STYLING --
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
 :root {
     --primary: #1E90FF;
@@ -116,17 +112,6 @@ hr {border: 1px solid #20232a!important;}
     z-index: 2;
     transform: translateY(-1px) scale(1.00);
 }
-.tab-icon {
-    margin-right: 0.7em;
-    font-size: 1.17em;
-    vertical-align: middle;
-    display: inline-block;
-    opacity: 0.9;
-}
-.stTabs [role="tab"][aria-selected="true"] .tab-icon {
-    filter: drop-shadow(0 0 6px #0007);
-    opacity: 1.0;
-}
 .stTabs [data-testid="stTabBody"] > div {
     background: var(--bg) !important;
     border-radius: 0 0 var(--tab-radius) var(--tab-radius) !important;
@@ -146,9 +131,7 @@ hr {border: 1px solid #20232a!important;}
 </style>
 """, unsafe_allow_html=True)
 
-
-
-# --- SIDEBAR PROFILE ---
+# -- SIDEBAR PROFILE --
 with st.sidebar:
     st.image("passport.jpg", width=160)
     st.markdown("## 📬 Contact")
@@ -156,11 +139,8 @@ with st.sidebar:
     st.write("📱 8459291488")
     st.markdown("[🌏 LinkedIn](https://www.linkedin.com/in/your-profile)")
 
-
-
-# --- MAIN HEADER ---
+# -- MAIN HEADER --
 st.title("Ashwik Bire")
-
 st.markdown(
     "*Business Intelligence Enthusiast | Data Science | Data Analytics | Power BI | TDV | TIBCO Spotfire | Tableau | Python Machine Learning | SQL | Azure Data Engineering | Azure Databricks | PMO*"
 )
@@ -172,28 +152,21 @@ Spot Recognition Award from Atos Syntel CEO. Top rank – Amrita Business Innova
 Passionate about nature photography, dance, and creative writing, fueling creativity and detail.
     """)
 
-# --- TABS: ICONS + NAMES ---
-ICONS = [
-    '<i class="fa-solid fa-graduation-cap tab-icon"></i>',    # Education
-    '<i class="fa-solid fa-briefcase tab-icon"></i>',         # Experience
-    '<i class="fa-solid fa-microchip tab-icon"></i>',         # Technologies
-    '<i class="fa-solid fa-wrench tab-icon"></i>',            # Tools
-    '<i class="fa-solid fa-diagram-project tab-icon"></i>',   # Projects
-    '<i class="fa-solid fa-certificate tab-icon"></i>',       # Certifications
-    '<i class="fa-solid fa-trophy tab-icon"></i>',            # Achievements
-    '<i class="fa-solid fa-heart tab-icon"></i>',             # Interests
-    '<i class="fa-brands fa-connectdevelop tab-icon"></i>',   # Social Sites
-    '<i class="fa-solid fa-envelope tab-icon"></i>'           # Contact
+# -- TABS: EMOJI ICONS + NAMES --
+tab_titles = [
+    "🎓 Education",
+    "💼 Experience",
+    "💻 Technologies",
+    "🛠️ Tools",
+    "📊 Projects",
+    "🎓 Certifications",
+    "🏆 Achievements",
+    "💚 Interests",
+    "🌐 Social Sites",
+    "📱 Contact"
 ]
-NAMES = [
-    "Education", "Experience", "Technologies", "Tools", "Projects",
-    "Certifications", "Achievements", "Interests", "Social Sites", "Contact"
-]
-TABS = [ICONS[i] + NAMES[i] for i in range(len(NAMES))]
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(tab_titles)
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs(TABS)
-
-# --- TAB 1: EDUCATION ---
 with tab1:
     st.subheader("📖 Education")
     st.markdown("""
@@ -205,7 +178,6 @@ with tab1:
   _Janta High School Purnanager, Amravati_ | 2015-2016
     """)
 
-# --- TAB 2: EXPERIENCE ---
 with tab2:
     st.subheader("🧑‍💼 Experience")
     st.markdown("""
@@ -225,7 +197,6 @@ _Designation: Data Analyst | Clients: TCS, Birlasoft_
 - Automated reporting and visualizations.
     """)
 
-# --- TAB 3: TECHNOLOGIES ---
 with tab3:
     st.subheader("💻 Technologies")
     col1, col2 = st.columns(2)
@@ -241,7 +212,6 @@ with tab3:
 - HTML, CSS, JS, Bootstrap
         """)
 
-# --- TAB 4: TOOLS ---
 with tab4:
     st.subheader("🛠️ Tools")
     st.markdown("""
@@ -251,7 +221,6 @@ with tab4:
 - TIBCO Data Virtualization (TDV)
     """)
 
-# --- TAB 5: PROJECTS ---
 with tab5:
     st.subheader("📊 Projects")
     st.markdown("""
@@ -261,7 +230,6 @@ with tab5:
 **Python:** Road Line Detection using OpenCV
     """)
 
-# --- TAB 6: CERTIFICATIONS ---
 with tab6:
     st.subheader("🎓 Certifications")
     st.markdown("""
@@ -271,7 +239,6 @@ TIBCO Spotfire Beginner → Advanced, Master Power BI in 21 Days,
 SQL Intermediate, FE Web Dev Ultimate Course 2021, Python Programming B2A
     """)
 
-# --- TAB 7: ACHIEVEMENTS ---
 with tab7:
     st.subheader("🏆 Achievements")
     st.markdown("""
@@ -285,9 +252,8 @@ with tab7:
 - 1st Prize – Kavya Vachan (Jan 2017)
     """)
 
-# --- TAB 8: INTERESTS/HOBBIES ---
 with tab8:
-    st.subheader("🌱 Interests & Hobbies")
+    st.subheader("💚 Interests & Hobbies")
     st.markdown("""
 - Nature photography  
 - Dance  
@@ -295,7 +261,6 @@ with tab8:
 - Continuous learning & skill development
     """)
 
-# --- TAB 9: SOCIAL SITES ---
 with tab9:
     st.subheader("🌐 Social Sites")
     st.markdown("""
@@ -307,7 +272,6 @@ with tab9:
 - Instagram: [Shimmering Lines](https://www.instagram.com/ShimmeringLines)
     """)
 
-# --- TAB 10: CONTACT ---
 with tab10:
     st.subheader("📱 Contact")
     st.markdown("""
