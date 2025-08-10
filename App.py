@@ -234,12 +234,43 @@ with tab4:
 
 with tab5:
     st.subheader("📊 Projects")
+
+    # --- STREAMLIT & WEB APPS ---
+    st.markdown("### 🌐 Streamlit Apps / Dashboards")
     st.markdown("""
-**Power BI:** Hospital Activity UK Dashboard, Amazon Sales Dashboard  
-**Web:** A_Naturography Website, Online Food Ordering System  
-**IoT/Academic:** Conference Room Light Controller with Bidirectional Counter  
-**Python:** Road Line Detection using OpenCV
+- [Learn2BI – Interactive BI Learning Platform](https://learn2bi-85twalgwbjgchgz57dxdta.streamlit.app/)
+- [Stock Market Dashboard](https://ashwik-s-stock-market-dashboard-5qpd6ccjaw9hs6vs8dpfsn.streamlit.app/)
+- [Jarvis AI Assistant](https://jarvis-ai-assistant-acihfrbdbxuxdx4jmaship.streamlit.app/)
+- [My Learning App](https://my-learning-app-w7dos3mgvuuyrvkzgdzaph.streamlit.app/)
+- [Engineering Calculator](https://engineeringcalculator-fafmivvbvwvsw4jckqxjkl.streamlit.app/)
+- [My Digital Portfolio](https://mydigitalportfolio-clraahzxkszmlpjqjdpuxt.streamlit.app/)
+- [Object Recognition App](https://object-recognition-vxwcn8cdwvh9htsvhuq4s4.streamlit.app/)
     """)
+
+    st.markdown("### 📊 Power BI Dashboards")
+    st.markdown("""
+- **Hospital Activity UK Dashboard** – Power BI  
+- **Amazon Sales Dashboard** – Power BI
+    """)
+
+    # --- WEB PROJECTS ---
+    st.markdown("### 💻 Web Development Projects")
+    st.markdown("""
+- [A_Naturography Website](https://ashwikbire.github.io/Resume.github.io/)
+    """)
+
+    # --- IOT / ACADEMIC ---
+    st.markdown("### 📡 IoT / Academic Project")
+    st.markdown("""
+- Conference Room Light Controller with Bidirectional Visitor Counter
+    """)
+
+    # --- PYTHON ---
+    st.markdown("### 🐍 Python Project")
+    st.markdown("""
+- Road Line Detection using OpenCV
+    """)
+
 
 with tab6:
     st.subheader("🎓 Certifications")
