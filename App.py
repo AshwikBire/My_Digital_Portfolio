@@ -244,11 +244,17 @@ with tab5:
 with tab6:
     st.subheader("🎓 Certifications")
     st.markdown("""
-Microsoft Azure Fundamental, Power BI Data Analyst Associate,  
-Business Intelligence Foundation Professional, Scrum FPC,  
-TIBCO Spotfire Beginner → Advanced, Master Power BI in 21 Days,  
-SQL Intermediate, FE Web Dev Ultimate Course 2021, Python Programming B2A
+- [Microsoft Azure Fundamental](https://learn.microsoft.com/en-us/users/ashwikbire-7557/credentials/7de31893d146bf69)
+- [Microsoft Certified Power BI Data Analyst Associate](https://learn.microsoft.com/en-us/users/ashwikbire-7557/credentials/b4324bff2a4c2081)
+- [Business Intelligence Foundation Professional Certificate](https://www.credly.com/badges/cbaf47fb-ac03-497d-8c73-12aa1c545e2c/public_url)
+- [Scrum Foundational Professional Certificate](https://www.credly.com/badges/79aea45b-709c-4419-814b-930c88d25f92/linked_in_p)
+- [TIBCO Spotfire Development from Beginner to Advance](https://ude.my/UC-196a08f2-2e26-4c46-a11a-791877109bfc)
+- [Master Microsoft Power BI in 21 Days](https://ude.my/UC-67d2eb25-91e580-821-22110650542)
+- [SQL Intermediate](https://www.hackerrank.com/certificates/79ec222704f3)
+- [Front End Web Development Ultimate Course 2021](http://ude.my/UC-3bacc955-2f7b-4e2e-9340-a6cc4f4121a4)
+- [Python Programming - From Basics to Advanced level](https://www.udemy.com/certificate/UC-21d316ab-2820-482a-9abb-be3c7c9e0c3d/)
     """)
+
 
 with tab7:
     st.subheader("🏆 Achievements")
