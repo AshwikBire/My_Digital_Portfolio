@@ -181,21 +181,32 @@ with tab1:
 with tab2:
     st.subheader("🧑‍💼 Experience")
     st.markdown("""
-**Atos Syntel** | Aug 2022 – Aug 2023  
-_Project: Analytics COE APAC | Client: FedEx APAC | Role: Associate Consultant_  
-- Developed airWISE dashboard from inception using TDV and custom visualizations.  
-- Managed migrations DEV → QA → PROD.  
-- Agile collaboration, daily stand-ups, meetings.  
-- Translated data into actionable visualizations.
+**Atos Syntel** — *Associate Consultant*  
+Aug 2022 – Aug 2023 | Project: Analytics COE APAC | Client: FedEx APAC  
+Technologies & Tools: TIBCO Spotfire 11x, TIBCO Data Virtualization (TDV), Power BI, SQL, Data Warehouse
+
+- Designed, developed, and deployed the *airWISE* dashboard from scratch using TDV and advanced Spotfire visualizations to monitor APAC regional performance metrics.
+- Managed seamless dashboard migrations across DEV → QA → PROD environments, ensuring zero downtime and consistent data accuracy.
+- Collaborated in a SAFe Agile environment with daily stand-ups, sprint planning, and retrospectives to deliver analytics solutions on time.
+- Translated complex business requirements into clear technical designs and actionable data insights, enabling faster decision-making for APAC business leads.
+- Improved dashboard loading times by optimizing SQL queries and implementing data caching, reducing report load time by approximately 35%.
+- Conducted rigorous data validation to ensure data integrity across FedEx APAC analytics reports.
 
 ---
 
-**VDA Infosolutions Pvt Ltd** | Dec 2023 – Present  
-_Designation: Data Analyst | Clients: TCS, Birlasoft_  
-- Maintained & designed dashboards for incidents, assets, SLA compliance.  
-- Data validation & auditing for ticketing.  
-- Automated reporting and visualizations.
-    """)
+**VDA Infosolutions Pvt Ltd** — *Data Analyst*  
+Dec 2023 – Present | Clients: Tata Consultancy Services (TCS), Birlasoft Pvt Ltd  
+Technologies & Tools: Power BI Desktop, SQL Server, MS Excel, DAX, SharePoint
+
+- Developed and maintained interactive Power BI dashboards for incident management, issue tracking, and SLA compliance monitoring, enhancing visibility for IT governance teams.
+- Designed optimized asset management dashboards for TIO to track IT asset lifecycles, usage, and compliance effectively.
+- Performed comprehensive ticketing data audits ensuring accuracy and compliance.
+- Automated recurring reports and visualizations using DAX measures and scheduled Power BI refreshes, reducing manual reporting efforts by 40%.
+- Implemented real-time KPI tracking visuals for SLA compliance, enabling proactive breach detection.
+- Collaborated cross-functionally with stakeholders to refine data requirements and improve reporting accuracy.
+
+""")
+
 
 with tab3:
     st.subheader("💻 Technologies")
